@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amal Rifai</title>
+<meta name="description" content="Amal Rifai — enseignante-chercheuse, CRMEF Rabat. Technologies éducatives, tutorat intelligent, IA en éducation.">
+<script>
+  // Apply saved theme before paint
+  try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+</script>
+<style>
+  :root {
+    --bg: #fafaf8; --surface: #ffffff; --text: #1c1c1e; --muted: #5f6368;
+    --line: #e4e4e0; --accent: #1f5fbf; --accent-soft: #e8effa;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #121314; --surface: #1b1c1e; --text: #ececea; --muted: #a0a3a8;
+      --line: #2c2e31; --accent: #7fb0ff; --accent-soft: #1d2a3f;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #121314; --surface: #1b1c1e; --text: #ececea; --muted: #a0a3a8;
+    --line: #2c2e31; --accent: #7fb0ff; --accent-soft: #1d2a3f;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 16px; }
+  header.top { display: flex; justify-content: flex-end; padding: 16px 0; }
+  .toggle {
+    border: 1px solid var(--line); background: var(--surface); color: var(--text);
+    border-radius: 999px; padding: 6px 14px; font: inherit; font-size: 14px; cursor: pointer;
+  }
+  .hero { padding: 32px 0 40px; border-bottom: 1px solid var(--line); }
+  .avatar {
+    width: 72px; height: 72px; border-radius: 50%; background: var(--accent-soft); color: var(--accent);
+    display: grid; place-items: center; font-weight: 700; font-size: 26px; margin-bottom: 20px;
+  }
+  h1 { font-size: clamp(30px, 6vw, 44px); line-height: 1.15; margin: 0 0 8px; letter-spacing: -0.02em; }
+  .role { color: var(--muted); font-size: 18px; margin: 0 0 20px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+  .tag { background: var(--accent-soft); color: var(--accent); font-size: 13px; padding: 4px 10px; border-radius: 999px; }
+  .links { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 6px; text-decoration: none; color: var(--text);
+    border: 1px solid var(--line); background: var(--surface); padding: 8px 14px; border-radius: 8px; font-size: 14px;
+  }
+  .btn:hover { border-color: var(--accent); color: var(--accent); }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+  section { padding: 40px 0; border-bottom: 1px solid var(--line); }
+  h2 { font-size: 22px; margin: 0 0 6px; }
+  .sub { color: var(--muted); margin: 0 0 24px; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 24px; }
+  .stat { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px; }
+  .stat b { display: block; font-size: 26px; }
+  .stat span { color: var(--muted); font-size: 13px; }
+  .courses { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+  .course {
+    display: block; text-decoration: none; color: var(--text); background: var(--surface);
+    border: 1px solid var(--line); border-radius: 12px; padding: 18px;
+  }
+  .course:hover { border-color: var(--accent); }
+  .course .ic { font-size: 26px; }
+  .course h3 { margin: 10px 0 4px; font-size: 17px; }
+  .course p { margin: 0; color: var(--muted); font-size: 14px; }
+  .course .go { display: inline-block; margin-top: 12px; color: var(--accent); font-size: 14px; }
+  .course.soon { opacity: .6; pointer-events: none; }
+  ol.pubs { list-style: none; padding: 0; margin: 0; }
+  .pubs li { padding: 14px 0; border-top: 1px solid var(--line); }
+  .pubs li:first-child { border-top: 0; }
+  .pubs .yr { color: var(--accent); font-weight: 600; font-size: 13px; }
+  .pubs .t { display: block; font-weight: 600; color: var(--text); text-decoration: none; margin: 2px 0; }
+  .pubs a.t:hover { color: var(--accent); }
+  .pubs .m { color: var(--muted); font-size: 14px; }
+  footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; }
+  @media (max-width: 520px) { .stats { grid-template-columns: 1fr 1fr 1fr; } .stat b { font-size: 20px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <button class="toggle" id="themeBtn" type="button" aria-label="Changer de thème">◐ Thème</button>
+  </header>
+
+  <div class="hero">
+    <div class="avatar" aria-hidden="true">AR</div>
+    <h1>Amal Rifai</h1>
+    <p class="role">Enseignante-chercheuse · Centre Régional des Métiers de l'Éducation et de la Formation (CRMEF), Rabat</p>
+    <div class="tags">
+      <span class="tag">Technologies éducatives</span>
+      <span class="tag">Tutorat intelligent</span>
+      <span class="tag">IA en éducation</span>
+      <span class="tag">Scénarios pédagogiques</span>
+      <span class="tag">E-learning</span>
+    </div>
+    <div class="links">
+      <a class="btn primary" href="https://orcid.org/0000-0003-2793-3102" target="_blank" rel="noopener">ORCID · 0000-0003-2793-3102</a>
+      <a class="btn" href="https://www.researchgate.net/profile/Rifai-Amal" target="_blank" rel="noopener">ResearchGate</a>
+      <a class="btn" href="https://openalex.org/A5005611670" target="_blank" rel="noopener">OpenAlex</a>
+      <a class="btn" href="https://independent.academia.edu/amalrifai" target="_blank" rel="noopener">Academia.edu</a>
+    </div>
+  </div>
+
+  <section id="about">
+    <h2>Profil</h2>
+    <p>Formatrice de formateurs au CRMEF de Rabat et chercheuse associée à l'Université Ibn Tofail (Kénitra), mes travaux portent sur la modélisation des scénarios et des ressources d'apprentissage, à travers la méthode de modélisation par entités récursives (REMM), et sur les systèmes de tutorat personnalisé fondés sur l'intelligence artificielle.</p>
+    <div class="stats">
+      <div class="stat"><b>20+</b><span>publications</span></div>
+      <div class="stat"><b>2009–2026</b><span>activité de recherche</span></div>
+      <div class="stat"><b>6</b><span>cours en ligne</span></div>
+    </div>
+  </section>
+
+  <section id="cours">
+    <h2>Cours</h2>
+    <p class="sub">Supports de cours et travaux pratiques, accessibles sur Google Drive.</p>
+    <div class="courses" id="courses"></div>
+  </section>
+
+  <section id="publications">
+    <h2>Publications sélectionnées</h2>
+    <p class="sub">Liste complète sur <a href="https://orcid.org/0000-0003-2793-3102" target="_blank" rel="noopener" style="color:var(--accent)">ORCID</a> et <a href="https://openalex.org/A5005611670" target="_blank" rel="noopener" style="color:var(--accent)">OpenAlex</a>.</p>
+    <ol class="pubs" id="pubs"></ol>
+  </section>
+
+  <footer>© <span id="y"></span> Amal Rifai</footer>
+</div>
+
+<script>
+  // ▼ Paste the Google Drive folder links here once the folders are shared ("Anyone with the link").
+  const COURSES = [
+    { icon: "🤖", title: "Introduction à l'IA", desc: "18 séances : résolution de problèmes, systèmes experts, recherche heuristique, raisonnement bayésien, logique floue.", url: "" },
+    { icon: "🧠", title: "Machine Learning", desc: "30 séances : régression, arbres de décision, SVM, K-moyennes, regroupement hiérarchique, ACP.", url: "" },
+    { icon: "🏃", title: "IA et performance sportive", desc: "16 séances : vision par ordinateur, wearables, prédiction des blessures, jumeau numérique, éthique (XAI).", url: "" },
+    { icon: "📝", title: "Microsoft Word", desc: "Cours + TP : saisie, mise en forme, tableaux, images, WordArt.", url: "" },
+    { icon: "📊", title: "Microsoft Excel", desc: "Cours + 6 TP : tableaux, formules, fonctions et graphiques.", url: "" },
+    { icon: "📽️", title: "Microsoft PowerPoint", desc: "Concevoir et animer une présentation efficace.", url: "" },
+  ];
+
+  const PUBS = [
+    [2026, "Bridging Cybersecurity Skills and AI-Driven Secure Information Systems", "S. Nai, C. Taoussi, S. El Omari, A. Rifai, A. Sadiq · IGI Global (chapitre)", "10.4018/979-8-2600-3465-1.ch008"],
+    [2025, "Design and Evaluation of a Personalized AI Tutoring System Using ChatGPT", "S. Nai, T. El Moudden, A. Rifai, A. Sadiq · IGI Global (chapitre)", "10.4018/979-8-3373-8011-7.ch006"],
+    [2025, "Chatbots as Intelligent Advisors: Transforming Personalized Learning in Higher Education", "S. Nai, T. El Moudden, A. Rifai, A. Sadiq · IGI Global (chapitre)", "10.4018/979-8-3373-8011-7.ch005"],
+    [2025, "Proposal for a learner model adapted for personalized tutoring based on IMS-LIP and PAPI", "S. Nai, A. Rifai, A. Sadiq, B. E. Elbaghazaoui · IJERE", "10.11591/ijere.v14i6.33366"],
+    [2025, "Artificial intelligence predictive modeling for educational indicators using data profiling techniques", "S. Nai, B. E. Elbaghazaoui, A. Rifai, A. Sadiq · IAES IJ-AI", "10.11591/ijai.v14.i4.pp3063-3073"],
+    [2025, "An in-depth analysis of a tutoring solution by digital technology", "S. Nai, A. Rifai, A. Sadiq, B. E. Elbaghazaoui · IJECE", "10.11591/ijece.v15i4.pp4058-4073"],
+    [2025, "Data Governance in Education: Enhancing Predictions and Decision-Making for Performance Monitoring", "S. Nai, A. Rifai, A. Sadiq · IGI Global (chapitre)", "10.4018/979-8-3373-0365-9.ch005"],
+    [2025, "Data Governance, Key Insights, Strategic Challenges, and Future Imperatives", "S. Nai, A. Rifai, A. Sadiq · IGI Global (chapitre)", "10.4018/979-8-3373-0365-9.ch001"],
+    [2023, "Detailed Study of a Proposal for a Computer Based Tutoring Strategy", "S. Nai, A. Rifai, A. Sadiq, M. Bakrim · ASTES Journal", "10.25046/aj080301"],
+    [2022, "Preliminary Study of a Smart Computer System for Scholar Support", "S. Nai, A. Rifai, A. Sadiq, M. Bakrim · IEEE SETIT", "10.1109/setit54465.2022.9875526"],
+    [2021, "Conceptual model of the recursive entity modelling method after revision", "A. Rifai, M. A. Tzemmout, A. Sadiq · IAES IJ-AI", "10.11591/ijai.v10.i3.pp602-613"],
+    [2021, "Proposal for a Computer Based Tutoring Strategy", "S. Nai, A. Rifai, A. Sadiq · IEEE INISTA", "10.1109/inista52262.2021.9548452"],
+    [2020, "Storage management of educational scenarios modeled with the Recursive Entity Modelling Method", "M. A. Tzemmout, A. Rifai, A. Sadiq · IEEE ICDS", "10.1109/icds50568.2020.9268773"],
+    [2017, "Revision of the learning resources modeling concept by Recursive Entity Modeling Method (REMM)", "A. Rifai, M. Tahri Joutey, M. Bakrim, A. Sadiq · ACM BDCA", "10.1145/3090354.3090446"],
+    [2017, "Modeling of Problem Based Learning Strategy by Recursive Entity Modeling Method", "A. Rifai, M. Tahri Joutey, M. Bakrim, A. Sadiq · ACM BDCA", "10.1145/3090354.3090454"],
+    [2016, "Modeling of learning scenario adopting case study strategy by recursive entity modeling method", "A. Rifai, M. Bakrim, R. Messoussi, A. Sadiq · IEEE CiSt", "10.1109/cist.2016.7805104"],
+    [2010, "Modelling method of recursive entity", "A. Rifai, R. Messoussi · British Journal of Educational Technology", "10.1111/j.1467-8535.2010.01141.x"],
+  ];
+
+  const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
+
+  const cWrap = document.getElementById('courses');
+  COURSES.forEach(c => {
+    const a = el('a', 'course' + (c.url ? '' : ' soon'));
+    if (c.url) { a.href = c.url; a.target = '_blank'; a.rel = 'noopener'; }
+    a.append(el('div', 'ic', c.icon), el('h3', '', c.title), el('p', '', c.desc),
+             el('span', 'go', c.url ? 'Ouvrir le dossier →' : 'Bientôt disponible'));
+    cWrap.append(a);
+  });
+
+  const pWrap = document.getElementById('pubs');
+  PUBS.forEach(([y, t, m, doi]) => {
+    const li = el('li');
+    const a = el('a', 't'); a.textContent = t; a.href = 'https://doi.org/' + doi; a.target = '_blank'; a.rel = 'noopener';
+    const meta = el('div', 'm'); meta.textContent = m;
+    li.append(el('span', 'yr', y), a, meta);
+    pWrap.append(li);
+  });
+
+  document.getElementById('y').textContent = new Date().getFullYear();
+
+  // Theme toggle: system default, then remembered choice
+  const root = document.documentElement;
+  document.getElementById('themeBtn').addEventListener('click', () => {
+    const current = root.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    const next = current === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = next;
+    try { localStorage.setItem('theme', next); } catch (e) {}
+  });
+</script>
+</body>
+</html>
