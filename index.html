@@ -272,7 +272,8 @@
   <section id="cours">
     <div class="sec-head">
       <div><span class="num">02</span><h2>Enseignement</h2></div>
-      <p>Supports complets — présentations, fiches pédagogiques et travaux pratiques — en accès libre sur Google Drive.</p>
+      <div><p>Supports complets — présentations, fiches pédagogiques et travaux pratiques — en accès libre sur Google Drive.</p>
+        <a class="btn" style="margin-top:14px" href="https://drive.google.com/drive/folders/1edthImoUhbmnwPLCBp0NcJAjjbBXwOMV?usp=sharing" target="_blank" rel="noopener">Ouvrir tous les supports sur Drive ↗</a></div>
     </div>
     <div class="courses" id="courses"></div>
   </section>
@@ -315,12 +316,13 @@
 
 <script>
   // ▼ Paste the Google Drive folder links here ("Anyone with the link" → Viewer).
+  const DRIVE = "https://drive.google.com/drive/folders/1edthImoUhbmnwPLCBp0NcJAjjbBXwOMV?usp=sharing";
   const COURSES = [
-    { icon: "spark",  cat: "Intelligence artificielle", title: "Introduction à l'IA", desc: "Résolution de problèmes, systèmes experts, recherche heuristique, raisonnement bayésien et logique floue.", meta: "18 séances", url: "" },
-    { icon: "chart",  cat: "Intelligence artificielle", title: "Machine Learning", desc: "Régression, arbres de décision, SVM, K-moyennes, regroupement hiérarchique et ACP.", meta: "30 séances", url: "" },
-    { icon: "run",    cat: "IA appliquée", title: "IA et performance sportive", desc: "Vision par ordinateur, wearables, prédiction des blessures, jumeau numérique et IA explicable.", meta: "16 séances", url: "" },
-    { icon: "doc",    cat: "Bureautique", title: "Microsoft Word", desc: "Traitement de texte, mise en forme, tableaux, images et objets WordArt.", meta: "Cours + 8 TP", url: "" },
-    { icon: "grid",   cat: "Bureautique", title: "Microsoft Excel", desc: "Saisie, formules, fonctions, mise en forme et graphiques.", meta: "Cours + 6 TP", url: "" },
+    { icon: "spark",  cat: "Intelligence artificielle", title: "Introduction à l'IA", desc: "Résolution de problèmes, systèmes experts, recherche heuristique, raisonnement bayésien et logique floue.", meta: "18 séances", url: DRIVE },
+    { icon: "chart",  cat: "Intelligence artificielle", title: "Machine Learning", desc: "Régression, arbres de décision, SVM, K-moyennes, regroupement hiérarchique et ACP.", meta: "30 séances", url: DRIVE },
+    { icon: "run",    cat: "IA appliquée", title: "IA et performance sportive", desc: "Vision par ordinateur, wearables, prédiction des blessures, jumeau numérique et IA explicable.", meta: "16 séances", url: DRIVE },
+    { icon: "doc",    cat: "Bureautique", title: "Microsoft Word", desc: "Traitement de texte, mise en forme, tableaux, images et objets WordArt.", meta: "Cours + 8 TP", url: DRIVE },
+    { icon: "grid",   cat: "Bureautique", title: "Microsoft Excel", desc: "Saisie, formules, fonctions, mise en forme et graphiques.", meta: "Cours + 6 TP", url: DRIVE },
     { icon: "slides", cat: "Bureautique", title: "Microsoft PowerPoint", desc: "Concevoir, structurer et animer une présentation efficace.", meta: "En préparation", url: "" },
   ];
 
