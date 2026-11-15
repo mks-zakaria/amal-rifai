@@ -157,7 +157,10 @@
   .pub .v { font-size: 13.5px; color: var(--faint); font-style: italic; margin-top: 2px; }
   .badge { font-size: 11.5px; font-weight: 600; padding: 3px 9px; border-radius: 6px; white-space: nowrap; background: var(--surface-2); color: var(--muted); }
   .badge.revue { background: var(--accent-soft); color: var(--accent); }
-  .more { margin-top: 24px; font-size: 14.5px; color: var(--muted); }
+  .more-wrap { display: flex; justify-content: center; margin-top: 28px; }
+  .more-wrap .btn { cursor: pointer; font: inherit; font-size: 14px; font-weight: 500; padding: 10px 22px; }
+  .more-wrap .btn[hidden] { display: none; }
+  .more { margin-top: 24px; text-align: center; font-size: 14.5px; color: var(--muted); }
   .more a { color: var(--accent); }
 
   /* Footer */
@@ -292,6 +295,7 @@
       </div>
     </div>
     <div class="pubs" id="pubs"></div>
+    <div class="more-wrap"><button class="btn" id="morePubs" type="button" aria-controls="pubs">Afficher plus</button></div>
     <p class="more">Liste complète et à jour sur <a href="https://scholar.google.com/citations?user=ZIRXkPQAAAAJ&amp;hl=fr" target="_blank" rel="noopener">Google Scholar</a>, <a href="https://orcid.org/0000-0003-2793-3102" target="_blank" rel="noopener">ORCID</a> et <a href="https://openalex.org/A5005611670" target="_blank" rel="noopener">OpenAlex</a>.</p>
   </section>
 
@@ -376,8 +380,16 @@
 
   const LABEL = { revue: 'Revue', conf: 'Conférence', chap: 'Chapitre' };
   const pubsEl = document.getElementById('pubs');
-  function renderPubs(f) {
-    pubsEl.innerHTML = PUBS.filter(p => f === 'all' || p[5] === f).map(([y, t, a, v, doi, type]) => `
+  const LIMIT = 6;
+  let filter = 'all', expanded = false;
+  const moreBtn = document.getElementById('morePubs');
+  function renderPubs() {
+    const list = PUBS.filter(p => filter === 'all' || p[5] === filter);
+    const shown = expanded ? list : list.slice(0, LIMIT);
+    moreBtn.hidden = list.length <= LIMIT;
+    moreBtn.textContent = expanded ? 'Afficher moins' : `Afficher plus (${list.length - LIMIT})`;
+    moreBtn.setAttribute('aria-expanded', expanded);
+    pubsEl.innerHTML = shown.map(([y, t, a, v, doi, type]) => `
       <article class="pub">
         <span class="yr">${y}</span>
         <div>
@@ -388,11 +400,15 @@
         <span class="badge ${type}">${LABEL[type]}</span>
       </article>`).join('');
   }
-  renderPubs('all');
+  renderPubs();
   document.querySelectorAll('.chip').forEach(b => b.addEventListener('click', () => {
     document.querySelectorAll('.chip').forEach(x => x.setAttribute('aria-pressed', x === b));
-    renderPubs(b.dataset.f);
+    filter = b.dataset.f; expanded = false; renderPubs();
   }));
+  moreBtn.addEventListener('click', () => {
+    expanded = !expanded; renderPubs();
+    if (!expanded) document.getElementById('publications').scrollIntoView();
+  });
 
   document.getElementById('y').textContent = new Date().getFullYear();
 
